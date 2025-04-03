@@ -1,22 +1,18 @@
-Welcome to Lumache's documentation!
-===================================
+.. Dequest Documentation
+========================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
-
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
-
-.. note::
-
-   This project is under active development.
-
-Contents
---------
+Welcome to the documentation for `dequest`, a Python library for declarative HTTP requests. `dequest` provides powerful decorators for synchronous and asynchronous API calls, with built-in support for retries, caching, circuit breakers, and more.
 
 .. toctree::
+   :caption: Contents:
 
-   usage
-   api
+   installation
+   sync_client
+   async_client
+   retry
+   config
+   caching
+   circuit_breaker
+   API parameters
+
+
