@@ -1,4 +1,4 @@
-Automatic Retries
+Retry
 =================
 
 If an API request fails due to network issues or server errors, `dequest` can automatically retry the request.

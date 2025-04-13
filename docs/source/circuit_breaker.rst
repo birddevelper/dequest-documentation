@@ -7,8 +7,8 @@ To use a circuit breaker with `dequest`, create an instance of `CircuitBreaker` 
 
 .. code-block:: python
 
-   from dequest.clients import sync_client
-   from dequest.circuit_breaker import CircuitBreaker
+   from dequest import sync_client
+   from dequest import CircuitBreaker
 
    # Define a Circuit Breaker with failure threshold of 3 and recovery timeout of 10 seconds
    breaker = CircuitBreaker(failure_threshold=3, recovery_timeout=10)
@@ -22,8 +22,8 @@ Note The retry logic wraps the entire operation so that only if all attempts fai
 
 .. code-block:: python
 
-   from dequest.clients import sync_client
-   from dequest.circuit_breaker import CircuitBreaker
+   from dequest import sync_client
+   from dequest import CircuitBreaker
 
    breaker = CircuitBreaker(failure_threshold=3, recovery_timeout=10)
 
@@ -40,7 +40,7 @@ When the circuit breaker is open, calling the function will raise a `CircuitBrea
 
 .. code-block:: python
 
-   from dequest.circuit_breaker import CircuitBreakerOpenError
+   from dequest import CircuitBreakerOpenError
 
    try:
        response = fetch_data()
@@ -57,7 +57,7 @@ For example, if the main API fails, we can return a cached response or default d
 .. code-block:: python
 
    from dequest import sync_client
-   from dequest.circuit_breaker import CircuitBreaker
+   from dequest import CircuitBreaker
 
    # Define a fallback function
    def fallback_response():
