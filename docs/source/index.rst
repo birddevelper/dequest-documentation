@@ -1,4 +1,4 @@
-.. Dequest Documentation
+Dequest Documentation
 ========================
 
 Welcome to the documentation for `dequest`, a Python library for declarative HTTP requests. `dequest` provides powerful decorators for synchronous and asynchronous API calls, with built-in support for retries, caching, circuit breakers, and more.
@@ -7,12 +7,12 @@ Welcome to the documentation for `dequest`, a Python library for declarative HTT
    :caption: Contents:
 
    installation
+   config
    sync_client
    async_client
    retry
-   config
    caching
    circuit_breaker
-   API parameters
+   API_parameters
 
 
