@@ -76,7 +76,7 @@ The `api_key` parameter in `dequest` is used to authenticate API requests by add
 
 
 Usage
---------
+~~~~~~
 
 The `api_key` parameter accepts either:
 - A **string** containing the API key.
