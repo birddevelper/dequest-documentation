@@ -6,12 +6,9 @@ auth_token Parameter
 
 The `auth_token` parameter in `dequest` is used to authenticate API requests by adding a Bearer token to the request's `Authorization` header.
 
-Overview
---------
 
+**Usage**
 
-Usage
------
 
 The `auth_token` parameter accepts either:
 
@@ -24,8 +21,8 @@ In both cases, `dequest` will automatically add the token to the `Authorization`
 
    Authorization: Bearer <your_token_here>
 
-Examples
---------
+**Examples**
+
 
 **Static Token**
 
@@ -72,11 +69,12 @@ In this case, `get_access_token()` will be called every time a request is made, 
 
 api_key Parameter (x-api-key Header)
 ------------
+
 The `api_key` parameter in `dequest` is used to authenticate API requests by adding an API key to the request's headers. It is particularly useful for APIs that require API keys by adding a token to the request's `x-api-key` header.
 
 
-Usage
-~~~~~~
+**Usage**
+
 
 The `api_key` parameter accepts either:
 - A **string** containing the API key.
@@ -88,8 +86,8 @@ In both cases, `dequest` will automatically add the key to the request headers i
 
    x-api-key: <your_api_key_here>
 
-Examples
---------
+**Examples**
+
 
 **Static API Key**
 

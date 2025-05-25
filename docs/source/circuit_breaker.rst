@@ -1,8 +1,6 @@
 Circuit Breaker
 ===============
 
-Basic Usage
------------
 To use a circuit breaker with `dequest`, create an instance of `CircuitBreaker` and pass it to the `sync_client` or `async_client` decorator.
 
 .. code-block:: python
@@ -34,8 +32,8 @@ Note The retry logic wraps the entire operation so that only if all attempts fai
 In the above example if API fails 2 * 3 times, the circuit opens and blocks requests for 10 seconds.
 
 
-Handling Circuit Breaker Open Errors
-------------------------------------
+**Handling Circuit Breaker Open Errors**
+
 When the circuit breaker is open, calling the function will raise a `CircuitBreakerOpenError`:
 
 .. code-block:: python
@@ -47,8 +45,7 @@ When the circuit breaker is open, calling the function will raise a `CircuitBrea
    except CircuitBreakerOpenError:
        print("Circuit breaker is open! Too many failures, try again later.")
 
-Using a `fallback_function`
----------------------------
+**Using a `fallback_function`**
 
 Instead of raising an error when the circuit breaker is open, you can define a **fallback function** that provides an alternative response. 
 
