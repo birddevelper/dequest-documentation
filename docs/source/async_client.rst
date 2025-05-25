@@ -5,9 +5,9 @@ The `@async_client` decorator lets you make non-blocking HTTP requests.
 
 .. code-block:: python
 
-   from dequest import async_client
+   from dequest import async_client, HttpMethod
 
-   @async_client(url="https://api.example.com/notify", method="POST")
+   @async_client(url="https://api.example.com/notify", method=HttpMethod.POST)
    def notify():
        pass
 

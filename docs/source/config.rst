@@ -1,16 +1,7 @@
 Configuration
 =============
 
-You can configure `dequest` globally using `DequestConfig`.
-
-Cache Provider
---------------
-
-.. code-block:: python
-
-   from dequest import DequestConfig
-
-   DequestConfig.CACHE_PROVIDER = "redis"  # Options: "in_memory", "redis" and "django"
+Dequest allows global configuration via DequestConfig, the configuration can be set using .config method of the DequestConfig class:
 
 Redis Configuration
 -------------------
