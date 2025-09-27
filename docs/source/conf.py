@@ -3,11 +3,11 @@
 # -- Project information
 
 project = "Dequest"
-copyright = "2025, M.Shaeri"
-author = "M.Shaeri"
+copyright = "2025, R.E"
+author = "R.E"
 
-release = "0.4.0"
-version = "0.4.0"
+release = "0.5.0"
+version = "0.5.0"
 
 # -- General configuration
 

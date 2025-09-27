@@ -3,8 +3,8 @@ Retry
 
 If an API request fails due to network issues or any server errors, `dequest` can automatically retry the request. This helps improve resiliency, especially when working with flaky or unstable network conditions or APIs.
 
-Basic Retry
------------
+**Basic Retry**
+
 
 You can enable retries by setting the `retries`, `retry_on_exceptions` and `retry_delay` parameters in the client decorator. Here's an example using the `sync_client`:
 
@@ -26,7 +26,7 @@ Here's an example using `async_client` with more sophisticated retry logic:
 .. code-block:: python
 
    from dequest import async_client, HttpMethod
-   from requests import HTTPError
+   from httpx import HTTPError
    import http
 
 
