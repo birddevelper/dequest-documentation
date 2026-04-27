@@ -47,7 +47,7 @@ To consume an XML response, set `consume=ConsumerType.XML`:
        dto_class=UserDTO,
        consume=ConsumerType.XML,
    )
-   def get_user(user_id: int):
+   def get_user(user_id: int = PathParameter()):
        pass
 
 **TEXT**
