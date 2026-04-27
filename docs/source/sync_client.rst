@@ -19,7 +19,7 @@ The `@sync_client` decorator allows you to make synchronous HTTP requests declar
 
 
     @sync_client(url="https://jsonplaceholder.typicode.com/users", dto_class=UserDto)
-    def get_users(city: QueryParameter[str, "city_name"]) -> List[UserDto]:
+    def get_users(city: str = QueryParameter(alias="city_name")) -> List[UserDto]:
         pass
 
     users = get_users(city="New York")

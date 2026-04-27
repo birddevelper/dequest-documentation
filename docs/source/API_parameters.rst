@@ -13,7 +13,7 @@ Use `PathParameter` to include values in the URL:
    from dequest import sync_client, PathParameter
 
    @sync_client(url="https://api.example.com/users/{user_id}")
-   def get_user(user_id: PathParameter[int]):
+   def get_user(user_id: int = PathParameter()):
        pass
 
    user = get_user(user_id=42)
@@ -29,7 +29,7 @@ Use `QueryParameter` to pass values as query parameters:
    from dequest import sync_client, QueryParameter
 
    @sync_client(url="https://api.example.com/search")
-   def search(keyword: QueryParameter[str, "q"]):
+   def search(keyword: str = QueryParameter(alias="q")):
        pass
 
    results = search(keyword="python")
@@ -50,10 +50,10 @@ Use `FormParameter` to send data as `application/x-www-form-urlencoded` in the b
        method="POST"
    )
    def save_user(
-       full_name: FormParameter[str, "name"],  # maps "full_name" to "name" in the form body
-       grade: FormParameter[int],
-       city: FormParameter[str],
-       birthday: FormParameter[str],
+       full_name: str = FormParameter(alias="name"),
+       grade: int = FormParameter(),
+       city: str = FormParameter(),
+       birthday: str = FormParameter(),
    ):
        pass
 
@@ -87,10 +87,10 @@ Use `JsonBody` to send data in the body of a request as JSON. This is typically 
        method="POST"
    )
    def save_user(
-       name: JsonBody,
-       grade: JsonBody,
-       city_name: JsonBody["city"],  # maps to "city" in the request body
-       birthday: JsonBody
+       name: str = JsonBody(),
+       grade: int = JsonBody(),
+       city_name: str = JsonBody(alias="city"),
+       birthday: str = JsonBody(),
    ):
        pass
 
@@ -114,29 +114,46 @@ This sends a JSON payload like:
 
 The `Content-Type` is automatically set to `application/json`.
 
-Optional Argument Support
--------------------------
+Parameter Declaration Style
+---------------------------
 
-In endpoint function definitions, `QueryParameter`, `PathParameter`, `FormParameter`, and `JsonBody` support two optional arguments:
+`dequest` now follows a FastAPI-style parameter declaration pattern:
 
-1. **Type Hint (First Argument)**  
-   You can provide a type hint (e.g., `str`, `int`, `bool`, etc.) as the first argument. This enables automatic type checking and validation before making the API call.
+.. code-block:: python
 
-   **Example:**
+   full_name: str = FormParameter(alias="name")
+   keyword: str = QueryParameter(default="python", alias="q")
+   user_id: int = PathParameter()
 
-   .. code-block:: python
+In this style:
 
-      grade: FormParameter[int]
+1. The Python type comes from the normal annotation such as `str`, `int`, or `bool`.
+2. Parameter options such as `alias` and `default` are passed to `PathParameter(...)`, `QueryParameter(...)`, `FormParameter(...)`, or `JsonBody(...)`.
+3. If a default value is provided in the parameter marker, that value is used when the function is called without that argument.
 
-2. **Mapping Name (Second Argument)**  
-   The second argument is an optional string that maps the Python parameter name to the actual parameter name expected by the API.
+Deprecated Subscription Style
+-----------------------------
 
-   **Example:**
+The old subscription-based declaration style is deprecated and will be removed in a future release.
 
-   .. code-block:: python
+Deprecated style:
 
-      full_name: FormParameter[str, "name"]
+.. code-block:: python
 
-This maps the `full_name` function parameter to the `name` field in the form data.
+   from dequest import sync_client, QueryParameter
 
-These features help keep your code type-safe and aligned with external API schemas. Each of these arguments can be used independently or together.
+   @sync_client(url="https://api.example.com/search")
+   def search(keyword: QueryParameter[str, "q"]):
+       pass
+
+Use this instead:
+
+.. code-block:: python
+
+   from dequest import sync_client, QueryParameter
+
+   @sync_client(url="https://api.example.com/search")
+   def search(keyword: str = QueryParameter(alias="q")):
+       pass
+
+When the deprecated subscription style is used, `dequest` emits a `FutureWarning` to help identify code that should be migrated.
