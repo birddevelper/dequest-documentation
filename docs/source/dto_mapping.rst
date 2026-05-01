@@ -22,7 +22,7 @@ Assuming we have the following JSON response from the API:
 
 .. code-block:: python
 
-from dataclasses import dataclass
+   from dataclasses import dataclass
 
    @dataclass 
    class ItemDTO:
@@ -44,7 +44,7 @@ Nested DTOs are supported automatically:
 
 .. code-block:: python
 
-from dataclasses import dataclass
+   from dataclasses import dataclass
 
    @dataclass
    class ProfileDTO:
