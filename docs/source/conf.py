@@ -6,8 +6,8 @@ project = "Dequest"
 copyright = "2025, Bird Developer"
 author = "Bird Developer"
 
-release = "0.6.0"
-version = "0.6.0"
+release = "0.7.0"
+version = "0.7.0"
 
 # -- General configuration
 
