@@ -10,9 +10,12 @@ Welcome to the documentation for `dequest`, a Python library for declarative HTT
    config
    sync_client
    async_client
+   async_await_client
+   dto_mapping
+   source_field
    retry
    authentication
-   consune_type
+   consume_type
    caching
    circuit_breaker
    API_parameters
